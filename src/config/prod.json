@@ -1,0 +1,6 @@
+{
+    "reCaptcha": {
+        "apiUrl": "https://www.google.com/recaptcha/api/siteverify",
+        "secretKey": "6Lf_Ui8gAAAAAPk0Lk5ERJnVhgepzpsjqV1Zkc4V"
+    }
+}
