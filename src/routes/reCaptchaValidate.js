@@ -4,7 +4,10 @@ const router = express.Router();
 const { postApiCall } = require('./common/apiCall');
 
 router.post('/', async (req, res) => {
-    const endpoint = `${config.get('reCaptcha.apiUrl')}?secret=${config.get('reCaptcha.secretKey')}&response=${req.body.recaptcha}&remoteip=${req.socket.remoteAddress}`;
+    const reCaptchaEndpoint = config.get('reCaptcha.apiUrl');
+    const reCaptchaSecretKey = process.env.RECAPTCHA_SECRETKEY;
+    console.log(reCaptchaSecretKey);
+    const endpoint = `${reCaptchaEndpoint}?secret=${reCaptchaSecretKey}&response=${req.body.recaptcha}&remoteip=${req.socket.remoteAddress}`;
 
     try {
         const response = await postApiCall(endpoint);
@@ -17,7 +20,7 @@ router.post('/', async (req, res) => {
         res.send({
             status: 'OK',
             code: '200',
-            data: response.data
+            success: response.data.success
         });
     } catch (err) {
         console.log('Error in reCaptcha response');

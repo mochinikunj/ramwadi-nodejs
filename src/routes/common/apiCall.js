@@ -1,6 +1,6 @@
 const axios = require('axios');
 
-const getApiCall = () => {
+const getApiCall = (endpoint, req) => {
     console.log('Api Call:', { method: 'GET', endpoint, req });
 
     return new Promise((resolve, reject) => {
