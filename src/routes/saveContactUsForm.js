@@ -5,6 +5,7 @@ const storeContactUsDetails = require('../database/store/storeContactUsDetails')
 const verifyReCaptcha = require('./reCaptchaValidate');
 
 router.post('/', async (req, res) => {
+    console.log('saveContactUsForm');
     try {
         const captchaResponse = await verifyReCaptcha(req);
         if (!(captchaResponse && captchaResponse.success)) {
