@@ -22,5 +22,5 @@ app.use('/healthCheck', healthCheck);
 app.use('/api/saveContactUsForm', saveContactUsForm);
 
 app.listen(port, () => {
-    console.log(`Server running on port: ${port}`);
+  console.log(`Server running on port: ${port}`);
 });

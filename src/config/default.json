@@ -1,5 +1,5 @@
 {
-    "reCaptcha": {
-        "apiUrl": "https://www.google.com/recaptcha/api/siteverify"
-    }
+  "reCaptcha": {
+    "apiUrl": "https://www.google.com/recaptcha/api/siteverify"
+  }
 }
