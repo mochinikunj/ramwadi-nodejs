@@ -3,10 +3,7 @@ const router = express.Router();
 
 router.get('/', (req, res) => {
   console.log('healthCheck');
-  res.send({
-    status: 'OK',
-    code: '200',
-  });
+  res.status(200).send({ code: 200, status: 'OK' });
 });
 
 module.exports = router;
