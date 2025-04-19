@@ -1,4 +1,5 @@
 {
+  "production": false,
   "reCaptcha": {
     "apiUrl": "https://www.google.com/recaptcha/api/siteverify"
   }

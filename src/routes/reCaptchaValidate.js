@@ -4,6 +4,7 @@ const config = require('config');
 const { postApiCall } = require('./common/apiCall');
 
 const verifyReCaptcha = async (req, res) => {
+  const isProduction = config.get('production');
   const reCaptchaEndpoint = config.get('reCaptcha.apiUrl');
   const reCaptchaSecretKey = process.env.RECAPTCHA_SECRETKEY;
   const endpoint = `${reCaptchaEndpoint}?secret=${reCaptchaSecretKey}&response=${req.body.recaptcha}&remoteip=${req.socket.remoteAddress}`;
@@ -12,7 +13,7 @@ const verifyReCaptcha = async (req, res) => {
     const response = await postApiCall(endpoint);
 
     console.log('reCaptcha response:', response.data);
-    if (!(response && response.data && response.data.success)) {
+    if (isProduction && !(response && response.data && response.data.success)) {
       throw new Error();
     }
 
