@@ -1,5 +1,3 @@
-// const express = require('express');
-// const router = express.Router();
 const config = require('config');
 const { postApiCall } = require('./common/apiCall');
 
@@ -35,5 +33,4 @@ const verifyReCaptcha = async (req, res) => {
   }
 };
 
-// router.post('/', verifyReCaptcha);
 module.exports = verifyReCaptcha;

@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const storeContactUsDetails = require('../database/store/storeContactUsDetails');
+const storeContactUsDetails = require('./common/storeContactUsDetails');
 const verifyReCaptcha = require('./reCaptchaValidate');
 
 router.post('/', async (req, res) => {
