@@ -2,16 +2,21 @@ const config = require('config');
 const { postApiCall } = require('./common/apiCall');
 
 const verifyReCaptcha = async (req, res) => {
-  const isProduction = config.get('production');
+  const production = config.get('production');
   const reCaptchaEndpoint = config.get('reCaptcha.apiUrl');
   const reCaptchaSecretKey = process.env.RECAPTCHA_SECRETKEY;
   const endpoint = `${reCaptchaEndpoint}?secret=${reCaptchaSecretKey}&response=${req.body.recaptcha}&remoteip=${req.socket.remoteAddress}`;
 
   try {
-    const response = await postApiCall(endpoint);
+    // if not production then bypass captch validation
+    if (!production) {
+      return { status: 'OK', code: '200', success: true };
+    }
 
+    // if production then validate captcha
+    const response = await postApiCall(endpoint);
     console.log('reCaptcha response:', response.data);
-    if (isProduction && !(response && response.data && response.data.success)) {
+    if (!(response && response.data && response.data.success)) {
       throw new Error();
     }
 
