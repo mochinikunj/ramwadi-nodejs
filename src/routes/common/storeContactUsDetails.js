@@ -17,7 +17,7 @@ const storeContactUsDetails = async (body) => {
     return {
       status: 'OK',
       code: 200,
-      success: response.data.success,
+      success: response.data,
     };
   } catch (err) {
     console.log('Error in drupal response');
