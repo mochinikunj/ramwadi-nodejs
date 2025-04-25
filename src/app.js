@@ -5,7 +5,6 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 
-const healthCheck = require('./routes/healthCheck');
 const saveContactUsForm = require('./routes/saveContactUsForm');
 
 const port = process.env.PORT || 3000;
@@ -13,7 +12,6 @@ const port = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
-app.use('/healthCheck', healthCheck);
 app.use('/api/saveContactUsForm', saveContactUsForm);
 
 app.listen(port, () => {
