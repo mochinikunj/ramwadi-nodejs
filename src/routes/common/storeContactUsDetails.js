@@ -5,12 +5,16 @@ const { postApiCall } = require('./apiCall');
 const storeContactUsDetails = async (body) => {
   console.log('storeContactUsDetails');
   const endpoint = config.get('drupal.apiUrl');
+  const apiKey = process.env.DRUPAL_API_KEY;
 
   /**
    * Write a logic to make a call to drupal to store contact us details
    */
   try {
-    const response = await postApiCall(endpoint, body);
+    const headers = {
+      'X-Api-Key': apiKey,
+    };
+    const response = await postApiCall(endpoint, body, headers);
     if (!(response && response.data)) {
       throw new Error();
     }

@@ -17,12 +17,12 @@ const getApiCall = (endpoint, req) => {
   });
 };
 
-const postApiCall = (endpoint, req) => {
-  console.log('Api Call:', { method: 'POST', endpoint, req });
+const postApiCall = (endpoint, req, headers = {}) => {
+  console.log('Api Call:', { method: 'POST', endpoint, req, headers});
 
   return new Promise((resolve, reject) => {
     axios
-      .post(endpoint, req)
+      .post(endpoint, req, { headers })
       .then((res) => {
         console.log('Success api call');
         resolve(res);
