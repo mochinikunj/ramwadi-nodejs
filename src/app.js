@@ -1,4 +1,5 @@
 const path = require('path');
+const config = require('config');
 process.env.NODE_CONFIG_DIR = path.join(__dirname, 'config');
 require('dotenv').config({ path: __dirname + '/env/.env' });
 const express = require('express');
