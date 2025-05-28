@@ -1,5 +1,6 @@
 {
   "production": true,
+  "allowedOrigins": ["https://ramwadi.org"],
   "reCaptcha": {
     "apiUrl": "https://www.google.com/recaptcha/api/siteverify"
   },

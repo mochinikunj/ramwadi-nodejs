@@ -18,7 +18,7 @@ const getApiCall = (endpoint, req) => {
 };
 
 const postApiCall = (endpoint, req, headers = {}) => {
-  console.log('Api Call:', { method: 'POST', endpoint, req, headers});
+  console.log('Api Call:', { method: 'POST', endpoint, req, headers });
 
   return new Promise((resolve, reject) => {
     axios
