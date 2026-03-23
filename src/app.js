@@ -100,6 +100,10 @@ const apiLimiter = rateLimit({
 
 app.use(express.json());
 
+app.use('/healthCheck', (req, res) => {
+  res.json({ status: 'OK', code: 200, message: 'Health check passed.' });
+});
+
 app.use('/api/saveContactUsForm', apiLimiter, saveContactUsForm);
 
 app.listen(port, () => {
