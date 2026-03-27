@@ -5,6 +5,6 @@
     "apiUrl": "https://www.google.com/recaptcha/api/siteverify"
   },
   "drupal": {
-    "apiUrl": "https://dev-ramwadi.pantheonsite.io/api/contact-submission"
+    "apiUrl": "https://dev-ramwadi.pantheonsite.io/api"
   }
 }
