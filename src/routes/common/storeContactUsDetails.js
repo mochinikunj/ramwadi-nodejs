@@ -3,7 +3,7 @@ const { postApiCall } = require('./apiCall');
 
 const storeContactUsDetails = async (body) => {
   console.log('storeContactUsDetails');
-  const endpoint = config.get('drupal.apiUrl');
+  const endpoint = `${config.get('drupal.apiUrl')}/contact-submission`;
   const apiKey = process.env.DRUPAL_API_KEY;
 
   /**

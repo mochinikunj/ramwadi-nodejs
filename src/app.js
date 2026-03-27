@@ -8,6 +8,7 @@ const config = require('config');
 const rateLimit = require('express-rate-limit');
 
 const saveContactUsForm = require('./routes/saveContactUsForm');
+const healthCheck = require('./routes/healthCheck');
 
 const port = process.env.PORT || 3000;
 
@@ -100,9 +101,7 @@ const apiLimiter = rateLimit({
 
 app.use(express.json());
 
-app.use('/healthCheck', (req, res) => {
-  res.json({ status: 'OK', code: 200, message: 'Health check passed.' });
-});
+app.use('/healthCheck', healthCheck);
 
 app.use('/api/saveContactUsForm', apiLimiter, saveContactUsForm);
 
