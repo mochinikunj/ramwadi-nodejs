@@ -9,7 +9,7 @@ router.get('/', async (_, res) => {
     const response = await healthCheckDrupal();
     console.log('healthCheck: ', response);
     if (!(response && response.code === 200 && response.status === 'OK')) {
-      throw new Error();
+      throw new Error('Health check failed!');
     }
 
     res.json({ code: 200, status: 'OK', message: 'Health check passed.' });
