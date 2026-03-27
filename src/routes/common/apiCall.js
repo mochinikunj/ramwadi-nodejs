@@ -1,11 +1,11 @@
 const axios = require('axios');
 
-const getApiCall = (endpoint, req) => {
-  console.log('Api Call:', { method: 'GET', endpoint, req });
+const getApiCall = (endpoint, headers = {}) => {
+  console.log('Api Call:', { method: 'GET', endpoint, headers });
 
   return new Promise((resolve, reject) => {
     axios
-      .post(endpoint, req)
+      .get(endpoint, { headers })
       .then((res) => {
         console.log('Success api call');
         resolve(res);
